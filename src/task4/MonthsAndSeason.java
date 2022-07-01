@@ -23,45 +23,34 @@ public class MonthsAndSeason {
             System.out.println("No such month in the year.");
         }
 
+        System.out.println("*******************************");
+
         switch (month) {
+            case "December":
             case "January":
-                System.out.println(month + " is winter.");
-                break;
             case "February":
                 System.out.println(month + " is winter.");
                 break;
             case "March":
-                System.out.println(month + " is spring.");
-                break;
             case "April":
-                System.out.println(month + " is spring.");
-                break;
             case "May":
                 System.out.println(month + " is spring.");
                 break;
             case "June":
-                System.out.println(month + " is summer.");
-                break;
             case "July":
-                System.out.println(month + " is summer.");
-                break;
             case "August":
                 System.out.println(month + " is summer.");
                 break;
             case "September":
-                System.out.println(month + " is autumn.");
-                break;
             case "October":
-                System.out.println(month + " is autumn. The time to fly to Munich");
-                break;
             case "November":
                 System.out.println(month + " is autumn.");
-                break;
-            case "December":
-                System.out.println(month + " is winter.");
+                if (month.equals("October")) {
+                    System.out.print(month + " The time to fly to Munich");
+                }
                 break;
             default:
                 System.out.println("No such month in the year.");
-        }
+            }
     }
 }
