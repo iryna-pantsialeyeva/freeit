@@ -11,9 +11,15 @@ public class FiveWayToCreateString {
         // 3rd way to create a string
         String string3 = string1 + string2;
 
-        StringBuilder string4 = new StringBuilder("4th way to create a string");
+        // 4th way to create a string - with constructor of class StringBuilder that takes a String
+        // and makes new instance of class StringBuilder - new stringBuilder on the basis String
+        // To create a String we need to transform instance of class StringBuilder to String object
+        StringBuilder strBuilder = new StringBuilder("4th way ");
+        String string4 = strBuilder.append("to create a string").toString();
 
-        String string5 = string4.replace(0, 2, "5th").toString();
-
+        // 5th way to create a string
+        String string5 = new String(new char[]{'a', 'd', 'd', 'e', 'd', ' ', '5', 't', 'h', ' ', 'w', 'a', 'y',
+                ' ', 't', 'o',' ', 'c', 'r', 'e', 'a', 't', 'e', ' ', 'a', ' ', 's', 't', 'r', 'i', 'n', 'g',
+                ':', '-', ')'}, 6, 26);
     }
 }
