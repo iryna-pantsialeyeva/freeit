@@ -1,4 +1,5 @@
 package task3;
+
 /* Имеется 4500 секунд. Вывести в консоль содержащихся в этом количестве секунд:
     А) минут + секунд,
     В) часов + минут + секунд,
@@ -9,20 +10,24 @@ public class SecondsCounter {
 
     public static void main(String[] args) {
         int seconds = 4500;
-        int secondsInHour = 3600;
         int secondsInMinute = 60;
-        int secondsInDay = 86400;
-        int secondsInWeek = 604800;
-        System.out.println(seconds / secondsInMinute + " + " + seconds % secondsInMinute);
-        System.out.println(seconds / secondsInHour + " + " + (seconds % secondsInHour) / secondsInMinute +
-                " + " + (seconds % secondsInHour) % secondsInMinute);
-        System.out.println(seconds / secondsInDay + " + " + (seconds % secondsInDay / secondsInHour) + " + " +
-                ((seconds % secondsInDay % secondsInHour) / secondsInMinute) + " + " + ((seconds % secondsInDay %
-                secondsInHour) % secondsInMinute));
-        System.out.println(seconds / secondsInWeek + " + " + seconds % secondsInWeek / secondsInDay + " + " +
-                (seconds % secondsInWeek % secondsInDay) / secondsInHour + " + " + ((seconds % secondsInWeek %
-                secondsInDay) % secondsInHour) / secondsInMinute + " + " + ((seconds % secondsInWeek %
-                secondsInDay) % secondsInHour) % secondsInMinute);
+        int minutesInHour = 60;
+        int hoursInDay = 24;
+        int daysInWeek = 7;
+
+        System.out.println("A) " + seconds / secondsInMinute + " + " + seconds % secondsInMinute);
+        System.out.println("B) " + seconds / (secondsInMinute * minutesInHour) + " + " +
+                (seconds % (secondsInMinute * minutesInHour) / secondsInMinute) + " + " +
+                (seconds % (secondsInMinute * minutesInHour) % secondsInMinute));
+        System.out.println("C) " + seconds / (secondsInMinute * minutesInHour * hoursInDay) + " + " +
+                (seconds / (secondsInMinute * minutesInHour)) + " + " +
+                (seconds % (secondsInMinute * minutesInHour) / secondsInMinute) + " + " +
+                (seconds % (secondsInMinute * minutesInHour) % secondsInMinute));
+        System.out.println("D) " + seconds / (secondsInMinute * minutesInHour * hoursInDay * daysInWeek) + " + " +
+                seconds / (secondsInMinute * minutesInHour * hoursInDay) + " + " +
+                (seconds / (secondsInMinute * minutesInHour)) + " + " +
+                (seconds % (secondsInMinute * minutesInHour) / secondsInMinute) + " + " +
+                (seconds % (secondsInMinute * minutesInHour) % secondsInMinute));
     }
 
 }

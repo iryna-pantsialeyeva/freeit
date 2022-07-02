@@ -7,15 +7,24 @@ public class DigitDifferencesFinder {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        String number = input.nextLine();
+        System.out.print("Введине натуральное 4-хзначное число: ");
+        int number = input.nextInt();
+
+        while (number < 1000 || number > 9999) {
+            System.out.print("Введено неверное число. \nВведите натуральное 4-хзначное число: ");
+            number = input.nextInt();
+        }
+
+        String numberString = "" + number;
         boolean equivalenceIndicator = false;
-        for (int i = 0; i < number.length(); i++) {
+
+        for (int i = 0; i < numberString.length(); i++) {
             if (equivalenceIndicator) {
                 System.out.println("Введенное число содержит одинаковые цифры");
                 break;
             } else {
-                for (int j = i + 1; j < number.length(); j++) {
-                    if (number.charAt(i) == number.charAt(j)) {
+                for (int j = i + 1; j < numberString.length(); j++) {
+                    if (numberString.charAt(i) == numberString.charAt(j)) {
                         equivalenceIndicator = true;
                     }
                 }
