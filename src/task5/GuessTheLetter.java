@@ -13,10 +13,13 @@ public class GuessTheLetter {
         Random random = new Random();
         int chosenLetterPosition = random.nextInt(alphabet.length());
         boolean isLetterGuessed = false;
-        System.out.println(chosenLetterPosition);
+
+        //System.out.println(alphabet.charAt(chosenLetterPosition)); // for easy check
+
+        Scanner sc = new Scanner(System.in);
+
         while (!isLetterGuessed) {
             System.out.print("Guess the letter (use lower case): ");
-            Scanner sc = new Scanner(System.in);
             String inputLetter = sc.nextLine().toLowerCase();
 
             if (chosenLetterPosition == alphabet.indexOf(inputLetter)) {
