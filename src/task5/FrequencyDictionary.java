@@ -1,33 +1,46 @@
 package task5;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 /* Написать частотный словарь - посчитать сколько раз каждое слово встречается в предложении и
 вывести результат в консоль*/
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 public class FrequencyDictionary {
     public static void main(String[] args) {
-        String text = "мама мыла раму раму мыла мама";
+        String text = "Мама, мыла      раму! Раму мыЛа мАмА . Мылом мыла Мама?  ";
+        Pattern pattern = Pattern.compile("\\s*[\\s,!.?]\\s*");
+        String[] words = pattern.split(text.toLowerCase());
+        String[] dictionary = new String[words.length];
+        int wordCounter = 0;
 
-        String[] wordArray = text.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            boolean isConsist = false;
 
-        Set<String> wordSet = new HashSet<>();
-
-        // 1. из массива wordArray создаем список значений при пом. метода asList класса Array
-        // 2. сохраняем наш список в HashSet при пом. метода addAll
-        // 3. при этом HashSet обеспечивает уникальность записываемых значений (перезаписывает повторяющиеся значения)
-        wordSet.addAll(Arrays.asList(wordArray));
-
-        for (String word : wordSet) {
-            int counter = 0;
-            for (int i = 0; i < wordArray.length; i++) {
-                if (word.equals(wordArray[i])) {
-                    counter++;
+            for (String wordFromDictionary : dictionary) {
+                if (words[i].equals(wordFromDictionary)) {
+                    isConsist = true;
+                    break;
                 }
             }
-            System.out.println("Word " + word + " is repeated " + counter + " time(s).");
+
+            if (!isConsist) {
+                dictionary[i] = words[i];
+            }
+        }
+
+        for (String wordFromDictionary : dictionary) {
+            if (wordFromDictionary != null) {
+                Pattern pattern1 = Pattern.compile(wordFromDictionary);
+                Matcher matcher = pattern1.matcher(text.toLowerCase());
+
+                while (matcher.find()) {
+                    wordCounter++;
+                }
+
+                System.out.println(wordFromDictionary + " - " + wordCounter + " times");
+                wordCounter = 0;
+            }
         }
     }
 }
