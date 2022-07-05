@@ -52,13 +52,11 @@ public class SentenceFrequencyDictionary {
     }
 
     static String[] textToSentenceParser(String text) {
-        String[] sentence = text.split("[.!?]");
-        return sentence;
+        return text.split("[.!?]");
     }
 
     static String[] sentenceToWordParser(String sentence) {
 
-        String[] word = sentence.trim().split(",\\s|\\s");
-        return word;
+        return sentence.trim().split(",\\s|\\s");
     }
 }
