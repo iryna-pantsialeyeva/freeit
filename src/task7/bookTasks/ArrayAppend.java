@@ -12,11 +12,11 @@ public class ArrayAppend {
         String text = "Java class StringTokenizer allows an application to break a string into tokens";
 
         text = text.trim();
-        String[] words = text.split("\\s*(\\s|,|!|-|;|\\.)\\s*");
+        String[] words = text.split("\\W");
 
         // first way - with addition operator and String
         String appendWord1 = new String();
-        String temp = new String();
+        String temp;
 
         for (int i = 0; i < words.length; i++) {
             temp = words[i];
@@ -25,7 +25,6 @@ public class ArrayAppend {
         System.out.println(appendWord1);
 
         // second way - with StringBuilder and append method
-
         StringBuilder appendWord2 = new StringBuilder();
 
         for (String word : words) {
