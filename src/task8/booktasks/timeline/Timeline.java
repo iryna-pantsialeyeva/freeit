@@ -46,11 +46,11 @@ public class Timeline {
 
     public static void print(int index) {
         if (index > 0) {
-            System.out.println("timeline1 > timeline2");
+            System.out.println("timeline1  >  timeline2");
         } else if (index < 0) {
-            System.out.println("timeline1 < timeline2");
+            System.out.println("timeline1  <  timeline2");
         } else {
-            System.out.println("timeline1 = timeline2");
+            System.out.println("timeline1  =  timeline2");
         }
     }
 }

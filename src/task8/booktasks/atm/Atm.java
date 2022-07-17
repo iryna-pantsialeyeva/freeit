@@ -69,7 +69,7 @@ public class Atm {
         if (!isEnoughForWithdraw(neededMoney)) {
             System.out.println("Non-sufficient funds.\nTry withdrawing money from another ATM.");
         } else {
-            System.out.println("Withdrawing money from an ATM ...Please wait: \nGet a transaction receipt.");
+            System.out.println("Withdrawing money from an ATM ... Please wait: \nGet a transaction receipt. ");
             System.out.print("USD100 banknote(s): " + neededMoney / 100 +
                     "\nUSD50 banknote(s): " + ((neededMoney % 100) / 50) +
                     "\nUSD20 banknote(s): " + (((neededMoney % 100) % 50) / 20));
