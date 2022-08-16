@@ -5,22 +5,21 @@ import java.util.Objects;
 
 public class Book implements Comparable<Book> {
 
+    private static int counter = 0;
     private int id;
     private String title;
     private String genre;
 
-    public Book(int id, String title, String genre) {
-        this.id = id;
+
+    public Book(String title, String genre) {
+        counter++;
+        this.id = counter;
         this.title = title;
         this.genre = genre;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {

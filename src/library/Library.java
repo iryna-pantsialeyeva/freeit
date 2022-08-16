@@ -5,43 +5,40 @@ import java.util.List;
 
 public class Library {
 
-    private List<Book> library;
+    private List<Book> books;
 
     public Library() {
-        library = new ArrayList<>();
+        books = new ArrayList<>();
     }
 
     public void addBook(Book book) {
 
-        boolean isBookInLibrary = false;
-
-        for (Book bookFromLibrary : library) {
-
-            if (bookFromLibrary.getId() == book.getId()) {
-                isBookInLibrary = true;
-                break;
-            }
-        }
-
-        if (isBookInLibrary) {
-            System.out.println("The library already contains the book with id " + book.getId() + ".");
-        } else {
-            library.add(book); // add - метод ArrayList
-        }
+        books.add(book);
+        // поскольку условие задачи изменилось согласно запросу Романа, эта проверка теперь не нужна.
+        // Закомментированный метод исправлен согласно запросу Димы
+//
+//        for (Book bookFromLibrary : books) {
+//
+//            if (bookFromLibrary.getId() == book.getId()) {
+//                System.out.println("The books already contains the book with id " + book.getId() + ".");
+//                return;
+//            }
+//        }
+//       books.add(book);
     }
 
-    public List<Book> getLibrary() { // получить список всех книг
-        return library;
+    public List<Book> getBooks() {
+        return books;
     }
 
     private Book getBookById(int id) {
 
         Book book = null;
 
-        for (int i = 0; i < library.size(); i++) {
+        for (int i = 0; i < books.size(); i++) {
 
-            if (id == library.get(i).getId()) {
-                book = library.get(i);
+            if (id == books.get(i).getId()) {
+                book = books.get(i);
                 break;
             }
         }
@@ -50,11 +47,12 @@ public class Library {
 
     public void deleteBookWithId(int id) {
 
-        if (getBookById(id) == null) {
+        Book book = getBookById(id);
+
+        if (book == null) {
             System.out.println("The book with id " + id + " is not found.");
         } else {
-            int index = library.indexOf(getBookById(id));
-            library.remove(index);
+            books.remove(book);
         }
     }
 
@@ -70,16 +68,11 @@ public class Library {
         }
     }
 
-    public void reversePrinter() {
-
-        for (int i = library.size() - 1; i >= 0; i--) {
-            System.out.println(library.get(i));
-        }
+    public int getLibrarySize() {
+        return books.size();
     }
 
-    public void printer() {
-        for (Book book : library) {
-            System.out.println(book);
-        }
+    public Book getBookByIndex(int i) {
+        return books.get(i);
     }
 }

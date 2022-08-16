@@ -8,24 +8,30 @@ public class Runner {
 
         Library library = new Library();
 
-        Book book1 = new Book(1, "Harry Potter", "fantasy");
-        Book book2 = new Book(2, "The Autumn of the Patriarch", "novel");
-        Book book3 = new Book(3, "Ludzi na baloce", "novel");
-        Book book4 = new Book(3, "Dune", "sci-fi");
+        Book book1 = new Book("Harry Potter", "fantasy");
+        Book book2 = new Book("The Autumn of the Patriarch", "novel");
+        Book book3 = new Book("Ludzi na baloce", "novel");
+        Book book4 = new Book("Dune", "sci-fi");
 
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
         library.addBook(book4);
 
-        Collections.sort(library.getLibrary());
+        Collections.sort(library.getBooks());
 
         library.deleteBookWithId(1);
 
-        library.reversePrinter();
+        for (int i = library.getLibrarySize() - 1; i >= 0; i--) {
+            System.out.println(library.getBookByIndex(i));
+        }
 
         library.changeBook(2, "The Lord of the Rings", "fantasy");
 
-        library.printer();
+        for (int i = 0; i < library.getLibrarySize(); i++) {
+            System.out.println(library.getBookByIndex(i));
+        }
+
+        System.out.println(book3.getId());
     }
 }
