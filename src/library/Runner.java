@@ -1,6 +1,5 @@
 package library;
 
-import java.util.Collections;
 
 public class Runner {
 
@@ -18,8 +17,6 @@ public class Runner {
         library.addBook(book3);
         library.addBook(book4);
 
-        Collections.sort(library.getBooks());
-
         library.deleteBookWithId(1);
 
         for (int i = library.getLibrarySize() - 1; i >= 0; i--) {
@@ -33,5 +30,8 @@ public class Runner {
         }
 
         System.out.println(book3.getId());
+
+        library.getSortedBooks("Reversed", "by Title");
+        library.printer();
     }
 }

@@ -1,14 +1,21 @@
 package library;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Library {
 
     private List<Book> books;
+    private IdComparator idComparator;
+    private TitleComparator titleComparator;
+    private GenreComparator genreComparator;
 
     public Library() {
         books = new ArrayList<>();
+        idComparator = new IdComparator();
+        titleComparator = new TitleComparator();
+        genreComparator = new GenreComparator();
     }
 
     public void addBook(Book book) {
@@ -25,10 +32,6 @@ public class Library {
 //            }
 //        }
 //       books.add(book);
-    }
-
-    public List<Book> getBooks() {
-        return books;
     }
 
     private Book getBookById(int id) {
@@ -74,5 +77,42 @@ public class Library {
 
     public Book getBookByIndex(int i) {
         return books.get(i);
+    }
+
+    public List<Book> getSortedBooks(String sortingOrder, String sortingType) {
+
+        if (sortingOrder == "Natural") {
+            switch (sortingType) {
+                case "by ID":
+                    Collections.sort(books, idComparator);
+                    break;
+                case "by Title":
+                    Collections.sort(books, titleComparator);
+                    break;
+                case "by Genre":
+                    Collections.sort(books, genreComparator);
+                    break;
+            }
+        } else if (sortingOrder == "Reversed") {
+            switch (sortingType) {
+                case "by ID":
+                    Collections.sort(books, idComparator.reversed());
+                    break;
+                case "by Title":
+                    Collections.sort(books, titleComparator.reversed());
+                    break;
+                case "by Genre":
+                    Collections.sort(books, genreComparator.reversed());
+                    break;
+            }
+        }
+        return books;
+    }
+
+    public void printer() {
+
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println(books.get(i));
+        }
     }
 }
