@@ -21,17 +21,6 @@ public class Library {
     public void addBook(Book book) {
 
         books.add(book);
-        // поскольку условие задачи изменилось согласно запросу Романа, эта проверка теперь не нужна.
-        // Закомментированный метод исправлен согласно запросу Димы
-//
-//        for (Book bookFromLibrary : books) {
-//
-//            if (bookFromLibrary.getId() == book.getId()) {
-//                System.out.println("The books already contains the book with id " + book.getId() + ".");
-//                return;
-//            }
-//        }
-//       books.add(book);
     }
 
     private Book getBookById(int id) {
