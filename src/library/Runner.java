@@ -1,37 +1,38 @@
 package library;
 
+import java.util.List;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    private static final String XML_PATH = "src/library/books.xml";
+    private static final String XSD_PATH = "src/library/books.xsd";
+    private static final String LIBRARY_RESERVE_COPY_PATH = "src/library/library.xml";
+
+    public static void main(String[] args) throws ValidationException {
 
         Library library = new Library();
 
-        Book book1 = new Book("Harry Potter", "fantasy");
-        Book book2 = new Book("The Autumn of the Patriarch", "novel");
-        Book book3 = new Book("Ludzi na baloce", "novel");
-        Book book4 = new Book("Dune", "sci-fi");
+        Book book1 = new Book("Harry Potter", "J.K. Rowling", "Harry Potter is a series of seven " +
+                "fantasy novels written by British author J. K. Rowling. The novels chronicle the lives of a young " +
+                "wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at " +
+                "Hogwarts School of Witchcraft and Wizardry. The main story arc concerns Harry's struggle against Lord " +
+                "Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as" +
+                " the Ministry of Magic and subjugate all wizards and Muggles (non-magical people).",
+                "1-86392-416-0", "fantasy novel", 1997, "hard");
 
         library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
-        library.addBook(book4);
 
-        library.deleteBookWithId(1);
-
-        for (int i = library.getLibrarySize() - 1; i >= 0; i--) {
-            System.out.println(library.getBookByIndex(i));
+        try  {
+            XMLValidator.isXmlValid(XSD_PATH, XML_PATH);
+            List<Book> xmlBookList = BooksParser.getBooksFromXML(XML_PATH);
+            library.addBooksFromList(xmlBookList);
+        } catch (ValidationException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Library was not updated.");
         }
 
-        library.changeBook(2, "The Lord of the Rings", "fantasy");
-
-        for (int i = 0; i < library.getLibrarySize(); i++) {
-            System.out.println(library.getBookByIndex(i));
-        }
-
-        System.out.println(book3.getId());
-
-        library.getSortedBooks("Reversed", "by Title");
         library.printer();
+
+        CreatorXMLFromLibrary.createXML(library,LIBRARY_RESERVE_COPY_PATH);
     }
 }

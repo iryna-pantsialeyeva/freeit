@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="books">
+
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="Book" maxOccurs="unbounded">
+                    <xs:complexType>
+
+                        <xs:sequence>
+                        <xs:element name="Title">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="40"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Author">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="40"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                            <xs:element name="Text">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="10000000"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        <xs:element name="ISBN">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:length value="13"/>
+                                    <xs:pattern value="\d-\d{5}-\d{3}-\d" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Genre">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="30"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PublishDate">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:totalDigits value="4"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Cover">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="hard"/>
+                                    <xs:enumeration value="soft"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        </xs:sequence>
+
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <Book>
+        <Title>Country of the Blind</Title>
+        <Author>H.G. Wells</Author>
+        <Text>In one of H. G. Wells's most brilliant and haunting stories, Nunez, a hapless mountaineer falls several
+            thousand feet down the side of an Andean mountain to find himself in the Country of the Blind, a sealed-off
+            valley, where, for fifteen generations, a strange community of congenitally blind human beings has been
+            thriving in complete ignorance of the outside world. Nunez gleefully reminds himself of an old proverb:
+            "In the Country of the Blind, the One-Eyed Man is King," but, to his dismay, things do not happen quite
+            as he had hoped. The Country of the Blind was written in 1904 and first published, in book form,
+            in 1911.
+        </Text>
+        <ISBN>1-86092-002-0</ISBN>
+        <Genre>science fiction</Genre>
+        <PublishDate>1911</PublishDate>
+        <Cover>hard</Cover>
+    </Book>
+    <Book>
+        <Title>Arthur Savile</Title>
+        <Author>O. Wilde</Author>
+        <Text>Lord Arthur Savile's Crime, first published in 1887, opens at Lady Windermere's society soire in London.
+            A chiromantist, Mr Septimus Podgers, has been brought to the party to entertain the assembled guests. All
+            goes well until he examines Lord Arthur Savile's hand: "Podgers grew curiously pale, and said nothing.
+            A shudder seemed to pass through him. Then some huge beads of perspiration broke out on his yellow forehead,
+            like a poisonous dew, and his fat fingers grew cold and clammy...."
+        </Text>
+        <ISBN>1-86092-016-0</ISBN>
+        <Genre>classic</Genre>
+        <PublishDate>1887</PublishDate>
+        <Cover>soft</Cover>
+    </Book>
+    <Book>
+        <Title>Little Tale</Title>
+        <Author>R.L. Stevenson</Author>
+        <Text>This gruesome story was first published in the Christmas issue of the Pall Mall Magazine for 1884 and,
+            although it had been written some time earlier, Stevenson initially laid it aside "in justifiable disgust,
+            the tale being horrid." One night Fettes, an old Scotsman at the George Inn, is shocked out of his
+            drunkenness by the sudden appearance of a shady figure from his past, Dr Wolfe Macfarlane. The sight
+            of Macfarlane brings back terrible memories for Fettes, in particular, the nightmarish events of that
+            stormy night in a rustic graveyard at Glencorse.
+        </Text>
+        <ISBN>1-86092-001-2</ISBN>
+        <Genre>detective</Genre>
+        <PublishDate>1884</PublishDate>
+        <Cover>hard</Cover>
+    </Book>
+</books>

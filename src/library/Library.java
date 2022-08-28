@@ -18,13 +18,15 @@ public class Library {
         genreComparator = new GenreComparator();
     }
 
-    public void addBook(Book book) {
+    public List<Book> getBooks() {
+        return books;
+    }
 
+    public void addBook(Book book) {
         books.add(book);
     }
 
     private Book getBookById(int id) {
-
         Book book = null;
 
         for (int i = 0; i < books.size(); i++) {
@@ -96,6 +98,10 @@ public class Library {
             }
         }
         return books;
+    }
+
+    public void addBooksFromList(List<Book> booksFromList) {
+        books.addAll(booksFromList);
     }
 
     public void printer() {
